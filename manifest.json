@@ -4,5 +4,9 @@
   "version": "0",
 
   "default_locale": "en",
-  "description": "Cloud-synced tab freezing/saving."
+  "description": "Cloud-synced tab freezing/saving.",
+
+  "permissions": [
+    "tab"
+  ]
 }
