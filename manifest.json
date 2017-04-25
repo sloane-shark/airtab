@@ -5,6 +5,11 @@
 
   "default_locale": "en",
   "description": "Cloud-synced tab freezing/saving.",
+  "icons": {
+    "16": "images/cloud-16.png",
+    "48": "images/cloud-48.png",
+    "128": "images/cloud-128.png"
+  },
 
   "permissions": [
     "tab"
