@@ -19,6 +19,10 @@
     "default_title": "Airtab"
   },
 
+  "background": {
+    "scripts": ["background.js"]
+  },
+
   "permissions": [
     "tabs"
   ]
