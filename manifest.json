@@ -3,7 +3,6 @@
   "name": "Airtab",
   "version": "0",
 
-  "default_locale": "en",
   "description": "Cloud-synced tab freezing/saving.",
   "icons": {
     "16": "images/cloud-16.png",
@@ -11,7 +10,16 @@
     "128": "images/cloud-128.png"
   },
 
+  "browser_action": {
+    "default_icon": {
+      "16": "images/cloud-16.png",
+      "24": "images/cloud-24.png",
+      "32": "images/cloud-32.png"
+    },
+    "default_title": "Airtab"
+  },
+
   "permissions": [
-    "tab"
+    "tabs"
   ]
 }
