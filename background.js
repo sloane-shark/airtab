@@ -13,5 +13,41 @@ function generateTabList() {
   });
 }
 
+// interactive auth function
+function auth() {
+  chrome.identity.getAuthToken({ interactive: true }, (token) => {
+    console.log(token);
+  });
+}
+
+// log in
+function logIn() {
+  chrome.browserAction.setBadgeText({ text: '' });
+  chrome.browserAction.onClicked.addListener(generateTabList);
+}
+
+// log out
+function logOut() {
+  chrome.browserAction.setBadgeText({ text: '!' });
+  chrome.browserAction.setBadgeBackgroundColor({ color: '#F00' });
+  chrome.browserAction.onClicked.addListener(auth);
+}
+
+// silent auth function
+function authSilent() {
+  chrome.identity.getAuthToken({ interactive: false }, (token) => {
+    if (chrome.runtime.lastError) {
+      logOut();
+    } else {
+      // successfully logged in
+      console.log(token);
+      logIn();
+    }
+  });
+}
+
 // browser action listener
-chrome.browserAction.onClicked.addListener(generateTabList);
+chrome.browserAction.onClicked.addListener(auth);
+
+// attempt to authorize
+authSilent();
