@@ -13,17 +13,15 @@ function generateTabList() {
   });
 }
 
-// interactive auth function
-function auth() {
-  chrome.identity.getAuthToken({ interactive: true }, (token) => {
-    console.log(token);
-  });
-}
-
 // log in
 function logIn() {
   chrome.browserAction.setBadgeText({ text: '' });
   chrome.browserAction.onClicked.addListener(generateTabList);
+}
+
+// interactive auth function
+function auth() {
+  chrome.identity.getAuthToken({ interactive: true }, logIn);
 }
 
 // log out
@@ -33,17 +31,18 @@ function logOut() {
   chrome.browserAction.onClicked.addListener(auth);
 }
 
+// silent auth callback
+function authSilentCallback() {
+  if (chrome.runtime.lastError) {
+    logOut();
+  } else {
+    logIn();
+  }
+}
+
 // silent auth function
 function authSilent() {
-  chrome.identity.getAuthToken({ interactive: false }, (token) => {
-    if (chrome.runtime.lastError) {
-      logOut();
-    } else {
-      // successfully logged in
-      console.log(token);
-      logIn();
-    }
-  });
+  chrome.identity.getAuthToken({ interactive: false }, authSilentCallback);
 }
 
 // browser action listener
