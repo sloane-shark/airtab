@@ -7,22 +7,22 @@
 
   "description": "Cloud-synced tab freezing/saving.",
   "icons": {
-    "16": "images/cloud-16.png",
-    "48": "images/cloud-48.png",
-    "128": "images/cloud-128.png"
+    "16": "img/cloud-16.png",
+    "48": "img/cloud-48.png",
+    "128": "img/cloud-128.png"
   },
 
   "browser_action": {
     "default_icon": {
-      "16": "images/cloud-16.png",
-      "24": "images/cloud-24.png",
-      "32": "images/cloud-32.png"
+      "16": "img/cloud-16.png",
+      "24": "img/cloud-24.png",
+      "32": "img/cloud-32.png"
     },
     "default_title": "Airtab"
   },
 
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["js/background.js"]
   },
 
   "permissions": [
