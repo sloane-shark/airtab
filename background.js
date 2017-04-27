@@ -1,6 +1,22 @@
 // background scripting for Airtab
 
-// function to add list to local list
+// function for arbitrary xhr request
+function handleReq(options) {
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    options.callback(xhr);
+  };
+  xhr.open(options.method, options.url, true);
+  xhr.setRequestHeader('Authorization', `Bearer ${options.token}`);
+  xhr.send(options.params);
+}
+
+// check if an object is empty
+function isEmpty(obj) {
+  return Object.keys(obj).length === 0;
+}
+
+// function to add list to registry
 function addList(list) {
   console.log(list);
 }
@@ -8,45 +24,10 @@ function addList(list) {
 // function to generate list of tabs
 function generateTabList() {
   chrome.tabs.query({ pinned: false }, (tabs) => {
-    const list = tabs.map(tab => tab.url);
+    const list = tabs.map(tab => ({ url: tab.url, title: tab.title, favicon: tab.favIconUrl }));
     addList(list);
   });
 }
 
-// log in
-function logIn() {
-  chrome.browserAction.setBadgeText({ text: '' });
-  chrome.browserAction.onClicked.addListener(generateTabList);
-}
-
-// interactive auth function
-function auth() {
-  chrome.identity.getAuthToken({ interactive: true }, logIn);
-}
-
-// log out
-function logOut() {
-  chrome.browserAction.setBadgeText({ text: '!' });
-  chrome.browserAction.setBadgeBackgroundColor({ color: '#F00' });
-  chrome.browserAction.onClicked.addListener(auth);
-}
-
-// silent auth callback
-function authSilentCallback() {
-  if (chrome.runtime.lastError) {
-    logOut();
-  } else {
-    logIn();
-  }
-}
-
-// silent auth function
-function authSilent() {
-  chrome.identity.getAuthToken({ interactive: false }, authSilentCallback);
-}
-
-// browser action listener
-chrome.browserAction.onClicked.addListener(auth);
-
-// attempt to authorize
-authSilent();
+// handler for browser button clicks
+chrome.browserAction.onClicked.addHandler(generateTabList);
