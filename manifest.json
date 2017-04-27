@@ -25,5 +25,11 @@
 
   "permissions": [
     "tabs"
-  ]
+  ],
+  "oauth2": {
+    "client_id": "587428467193-k526arvb6l752mrf7t5jvj7b7j4brdpt.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/spreadsheets"
+    ]
+  }
 }
