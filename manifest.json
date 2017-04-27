@@ -25,7 +25,8 @@
 
   "permissions": [
     "tabs",
-    "identity"
+    "identity",
+    "storage"
   ],
   "oauth2": {
     "client_id": "587428467193-ipb725b77jeaso5sa14q5ml0mton1t5p.apps.googleusercontent.com",
