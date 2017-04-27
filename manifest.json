@@ -3,6 +3,8 @@
   "name": "Airtab",
   "version": "0",
 
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0cj98PscNCMt6NaJlEUoJ1H6QOqjJyUsPja/YEGwLUqzxSuvLKQm+qWw8T4hA85m9nep70ZqSOKs3E1LDtc5wRIF2tyY35JC7xF65ItaCTAvF28RoGe5o2b2VTl/0gHzNrAqTft7ONnmeLeMparhhgB3F8t8dHi6bD+vm6xqUi6QFyjpcmDOdlJlWy4uaxYWWZS55K5eIWGXPHIIfvYZ3axxXBNEyyFAFRESCXl6c2yB99pb31ydF+FfBabPSVueosqZ8qnAd9XbPDrE0O+PN9P+iieIp5ZtPtIgEJsAW+NT4bHZJG4WuU2uwuqbeWtgjvnsdlKMyNHNKyk4h4CdoQIDAQAB",
+
   "description": "Cloud-synced tab freezing/saving.",
   "icons": {
     "16": "images/cloud-16.png",

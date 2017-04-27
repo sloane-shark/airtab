@@ -22,7 +22,6 @@ function authCallback(token) {
     chrome.browserAction.setBadgeText({ text: '!' });
     chrome.browserAction.setBadgeBackgroundColor({ color: '#F00' });
   } else {
-    chrome.browserAction.setBadgeText({ text: '' });
     authToken = token;
     chrome.browserAction.onClicked.addListener(generateTabList);
   }
@@ -30,6 +29,7 @@ function authCallback(token) {
 
 // auth function
 function auth(options = { interactive: false }) {
+  chrome.browserAction.setBadgeText({ text: '' });
   chrome.identity.getAuthToken({ interactive: options.interactive }, authCallback);
 }
 
