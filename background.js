@@ -19,10 +19,10 @@ function generateTabList() {
 // auth callback
 function authCallback(token) {
   if (chrome.runtime.lastError) {
-    chrome.browserAction.setBadge({ text: '!' });
+    chrome.browserAction.setBadgeText({ text: '!' });
     chrome.browserAction.setBadgeBackgroundColor({ color: '#F00' });
   } else {
-    console.log(token);
+    chrome.browserAction.setBadgeText({ text: '' });
     authToken = token;
     chrome.browserAction.onClicked.addListener(generateTabList);
   }
