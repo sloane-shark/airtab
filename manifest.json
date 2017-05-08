@@ -30,6 +30,7 @@
     "identity",
     "storage"
   ],
+  "content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'",
   "oauth2": {
     "client_id": "587428467193-ipb725b77jeaso5sa14q5ml0mton1t5p.apps.googleusercontent.com",
     "scopes": [
