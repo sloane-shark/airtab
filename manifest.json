@@ -30,9 +30,9 @@
     "identity",
     "storage"
   ],
-  "content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'",
+  "content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com/ https://apis.google.com/ https://www.googleapis.com/; object-src 'self'",
   "oauth2": {
-    "client_id": "587428467193-ipb725b77jeaso5sa14q5ml0mton1t5p.apps.googleusercontent.com",
+    "client_id": "211818389274-v24hvcckbge6lu22563o13i8ktogmepl.apps.googleusercontent.com",
     "scopes": [
       "https://www.googleapis.com/auth/userinfo.email",
       "https://www.googleapis.com/auth/userinfo.profile"
