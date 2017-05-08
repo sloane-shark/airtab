@@ -6,6 +6,8 @@
   },
 
   "globals": {
-    "chrome": true
+    "chrome": true,
+    "firebase": true,
+    "config": true
   }
 }
