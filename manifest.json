@@ -22,7 +22,7 @@
   },
 
   "background": {
-    "scripts": ["js/background.js", "js/config.js"]
+    "page": "background.html"
   },
 
   "permissions": [
