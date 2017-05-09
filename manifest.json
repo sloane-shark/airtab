@@ -35,5 +35,6 @@
     "scopes": [
       "https://www.googleapis.com/auth/spreadsheets"
     ]
-  }
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
