@@ -14,37 +14,38 @@ function generateTabList() {
     const list = tabs.map(tab => ({ url: tab.url, title: tab.title, favicon: tab.favIconUrl }));
     addList(list);
   });
+  chrome.tabs.create({url:'views/airtab.html'})
 }
 
-// auth callback
-function authCallback(token) {
-  if (chrome.runtime.lastError) {
-    chrome.browserAction.setBadgeText({ text: '!' });
-    chrome.browserAction.setBadgeBackgroundColor({ color: '#F00' });
-  } else {
-    authToken = token;
-    chrome.browserAction.onClicked.addListener(generateTabList);
-  }
-}
+// // auth callback
+// function authCallback(token) {
+//   if (chrome.runtime.lastError) {
+//     chrome.browserAction.setBadgeText({ text: '!' });
+//     chrome.browserAction.setBadgeBackgroundColor({ color: '#F00' });
+//   } else {
+//     authToken = token;
+//     chrome.browserAction.onClicked.addListener(generateTabList);
+//   }
+// }
 
-// auth function
-function auth(options = { interactive: false }) {
-  chrome.browserAction.setBadgeText({ text: '' });
-  chrome.identity.getAuthToken({ interactive: options.interactive }, authCallback);
-}
+// // auth function
+// function auth(options = { interactive: false }) {
+//   chrome.browserAction.setBadgeText({ text: '' });
+//   chrome.identity.getAuthToken({ interactive: options.interactive }, authCallback);
+// }
 
-// silent auth
-function authSilent() {
-  auth({ interactive: false });
-}
+// // silent auth
+// function authSilent() {
+//   auth({ interactive: false });
+// }
 
-// interactive auth
-function authInteractive() {
-  auth({ interactive: true });
-}
+// // interactive auth
+// function authInteractive() {
+//   auth({ interactive: true });
+// }
 
 // handler for browser button clicks
-chrome.browserAction.onClicked.addListener(authInteractive);
+chrome.browserAction.onClicked.addListener(generateTabList);
 
-// attempt to authorize
-authSilent();
+// // attempt to authorize
+// authSilent();
